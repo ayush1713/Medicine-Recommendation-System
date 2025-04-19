@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagnosis Result</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-900 font-poppins">
+    <div class="container mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+      <h1 class="text-4xl font-bold text-center text-blue-700">
+        Diagnosis Result
+      </h1>
+
+      {% if error %}
+      <p class="text-red-500 text-center mt-4">{{ error }}</p>
+      {% else %}
+      <p class="text-center text-xl mt-6">
+        <strong>Disease:</strong> {{ disease }}
+      </p>
+      <p class="text-center mt-4">
+        <strong>Description:</strong> {{ description }}
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-6">Precautions to Take:</h2>
+      <ul class="list-disc pl-5">
+        {% for precaution in precautions %}
+        <li>{{ precaution }}</li>
+        {% endfor %}
+      </ul>
+
+      <h2 class="text-2xl font-semibold mt-6">Medications</h2>
+      <ul class="list-disc pl-5">
+        {% for med in medications %}
+        <li>{{ med }}</li>
+        {% endfor %}
+      </ul>
+
+      <h2 class="text-2xl font-semibold mt-6">Recommended Diet</h2>
+      <ul class="list-disc pl-5">
+        {% for food in diet %}
+        <li>{{ food }}</li>
+        {% endfor %}
+      </ul>
+
+      <h2 class="text-2xl font-semibold mt-6">Suggested Workouts</h2>
+      <ul class="list-disc pl-5">
+        {% for exercise in workout %}
+        <li>{{ exercise }}</li>
+        {% endfor %}
+      </ul>
+
+      {% endif %}
+    </div>
+  </body>
+</html>

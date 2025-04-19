@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - DocHealth</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            font-size: 22.2px;
+            font-weight: bold;
+            color: #F3D64C;
+        }
+
+        .navbar-logo img {
+            height: 20px; /* Adjust the height of the icon */
+            margin-right: 10px; /* Space between icon and text */
+        }
+
+        .navbar-menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-menu li {
+            display: inline;
+            font-size: 15px;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .hero {
+            background-image: url("/static/images/background.png");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro-text {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .intro-heading {
+            font-size: 4rem;
+            font-weight: 600;
+            color: #10217a;
+            margin-bottom: 10px;
+            animation: slideInFromLeft 1.5s ease-in-out;
+        }
+
+        .intro-subtext {
+            font-size: 1.5rem;
+            color: #f2cd43;
+            font-weight: 400;
+            animation: slideInFromRight 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .primary-color {
+            color: #10217a;
+        }
+
+        .secondary-color {
+            color: #f2cd43;
+        }
+
+        .bg-primary {
+            background-color: #10217a;
+        }
+
+        .bg-secondary {
+            background-color: #f2cd43;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+            margin: 0 15px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <!-- DocHealth Logo with Icon and Text -->
+        <div class="navbar-logo">
+            <img src="{{ url_for('static', filename='images/heart.png') }}" alt="DocHealth Icon">
+            DocHealth™
+        </div>
+        
+        <!-- Navbar Menu on the Top Right -->
+        <ul class="navbar-menu">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('price') }}">Pricing</a></li>
+
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="intro-text">
+            <h1 class="intro-heading">Welcome to DocHealth</h1>
+            <p class="intro-subtext">Transforming healthcare with Machine Learning Solutions</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-16 bg-gray-100 text-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center primary-color mb-8">About Us</h2>
+            <p class="text-lg text-center mb-12">
+                DocHealth is a cutting-edge healthcare technology company focused on utilizing Machine Learning to revolutionize healthcare solutions. 
+                Our mission is to enhance the quality of patient care, increase the efficiency of healthcare processes, and provide innovative solutions for the most challenging health problems.
+            </p>
+
+            <div class="flex justify-center">
+                <div class="w-full lg:w-2/3">
+                    <h3 class="text-3xl font-semibold text-center mb-4 secondary-color">Our Vision</h3>
+                    <p class="text-lg text-center mb-8">
+                        At DocHealth, our vision is to create a healthier world through data-driven insights, advanced machine learning algorithms, and a commitment to improving healthcare access for everyone. 
+                        We believe in the transformative power of technology to bring about personalized and effective healthcare solutions.
+                    </p>
+
+                    <h3 class="text-3xl font-semibold text-center mb-4 secondary-color">Our Founder</h3>
+                    <p class="text-lg text-center">
+                        DocHealth was founded by Utkarsh, an innovative thinker with a passion for healthcare and technology. 
+                        His leadership and vision are driving the company forward to develop state-of-the-art solutions that aim to improve lives globally.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Co-Powered By Section -->
+    <section class="py-10 bg-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center primary-color mb-8">Co-Powered By</h2>
+            <div class="flex justify-center items-center">
+                <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo 1" class="logo">
+                <img src="{{ url_for('static', filename='images/logo2.png') }}" alt="Logo 2" class="logo">
+                <img src="{{ url_for('static', filename='images/logo3.png') }}" alt="Logo 3" class="logo">
+                <img src="{{ url_for('static', filename='images/logo4.png') }}" alt="Logo 4" class="logo">
+                <img src="{{ url_for('static', filename='images/logo5.png') }}" alt="Logo 5" class="logo">
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="py-10 bg-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center primary-color mb-4">Get in Touch</h2>
+            <div class="flex flex-col items-center">
+                <p class="text-lg mb-2"><strong>Email:</strong> visitus@dochealth.org</p>
+                <p class="text-lg mb-2"><strong>Phone:</strong> +91 8906000657</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-10 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center primary-color mb-4">Our Location</h2>
+            <div class="flex justify-center">
+                <iframe
+                    src="{{ map_url }}"
+                    width="600"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    referrerpolicy="origin">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-6 text-center text-white">
+        <p>&copy; {{ current_year }} DocHealth. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
+
